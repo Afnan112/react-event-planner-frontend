@@ -3,30 +3,31 @@ import React from "react";
 function EventForm() {
   return (
     <div>
+        <h2>Crate your Event</h2>
         <form>
             <div>
                 <label>Event Title</label>
-                <input id='title' name='title' required />
+                <input id='title' name='title' type="text" required />
             </div>
             <div>
                 <label>Start Date</label>
-                <input id='start_date' name='start_date' required />
+                <input id='start_date' name='start_date' type="date" required />
             </div>
             <div>
                 <label>End Date</label>
-                <input id='end_date' name='end_date' required />
+                <input id='end_date' name='end_date'  type="date"required />
             </div>
             <div>
                 <label>Start Time</label>
-                <input id='start_time' name='start_time' required />
+                <input id='start_time' name='start_time' type="time" required />
             </div>
             <div>
                 <label>End Time</label>
-                <input id='end_time' name='end_time' required />
+                <input id='end_time' name='end_time'  type="time" required />
             </div>
             <div>
                 <label>Location</label>
-                <input id='location' name='location' required />
+                <input id='location' name='location' type="text" required />
             </div>
             <div>
                 <label>Event Type</label>
@@ -34,10 +35,10 @@ function EventForm() {
             </div>
             <div>
                 <label>Description</label>
-                <input id='description' name='description' required />
+                <textarea id='description' name='description' required></textarea>
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit">Create Event</button>
         </form>
     </div>
 )
