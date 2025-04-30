@@ -1,10 +1,14 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router";
+
+import Home from "./pages/Home"
+
 function App() {
   return (
-    <>
-      <div>
-          <h1>Event Planner Frontend</h1>
-      </div>
-    </>
+    <Router>
+      <Routes>
+          <Route path='/' element={<Home/>}/>
+      </Routes>
+    </Router>
   )
 }
 
