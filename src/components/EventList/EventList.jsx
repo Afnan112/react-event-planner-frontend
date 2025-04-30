@@ -21,6 +21,7 @@ function EventList() {
 return (
     <div>
        <h2>Event List Page</h2>
+       <h3>Events</h3>
        <ul>
             {events.map(event => (
                 <li key={event.id}>
