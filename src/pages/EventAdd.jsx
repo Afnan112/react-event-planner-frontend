@@ -4,7 +4,8 @@ import EventForm from '../components/EventForm/EventForm'
 function EventAdd() {
   return (
     <div>
-      <h2>Event Add</h2>
+      <h1>Event Add Page</h1>
+      <EventForm/>
     </div>
   )
 }
