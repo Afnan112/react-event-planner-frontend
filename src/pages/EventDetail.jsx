@@ -18,7 +18,7 @@ function EventDetail() {
     } catch (err) {
         console.log(err)
         if (err.status === 404) {
-            setErrorMsg('Post Not Found')
+            setErrorMsg('Event Not Found')
         } else {
             setErrorMsg('Somethig went Wrong :-(')
         }
