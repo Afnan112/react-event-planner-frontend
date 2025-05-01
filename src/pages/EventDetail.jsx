@@ -35,7 +35,12 @@ if (!event) return <h1>Loading your Post...</h1>
   return (
     <div>
         <h2>Event Detail Page</h2>
-        <p>{event.formInputs}</p>
+        <h2>{event.title}</h2>
+        <p><strong>Date:</strong> {event.start_date} to {event.end_date}</p>
+        <p><strong>Time:</strong> {event.start_time} - {event.end_time}</p>
+        <p><strong>Location:</strong> {event.location}</p>
+        <p><strong>Type:</strong> {event.event_type}</p>
+        <p><strong>Description:</strong> {event.description}</p>
     </div>
   )
 }
