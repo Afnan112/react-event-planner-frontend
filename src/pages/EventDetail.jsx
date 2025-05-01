@@ -31,6 +31,21 @@ useEffect(() => {
     console.log(id)
 }, [])
 
+// Start Delete Event Function
+async function deleteEvent(){
+    try {
+        const response = await axios.delete(`http://127.0.0.1:8000/api/events/${id}/`)
+        if (response.status === 204){
+            navigate('/')
+        }
+
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+// End Delete Event Function
+
 if (errorMsg) return <h1>{errorMsg}</h1>
 if (!event) return <h1>Loading your Post...</h1>
 
@@ -44,6 +59,7 @@ if (!event) return <h1>Loading your Post...</h1>
         <p><strong>Type:</strong> {event.event_type}</p>
         <p><strong>Description:</strong> {event.description}</p>
         <button>Register Attendance</button>
+        <button onClick={deleteEvent}>Delete</button>
     </div>
   )
 }
