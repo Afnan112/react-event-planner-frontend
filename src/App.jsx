@@ -13,6 +13,8 @@ function App() {
           <Route path='events/add' element={<EventAdd/>}/>
           <Route path='events/:id' element={<EventDetail/>}/>
           <Route path='*' element={<NotFound/>}/>
+          {/* <Route path="/not-found" element={<NotFound />} /> */}
+
       </Routes>
     </Router>
   )
