@@ -6,8 +6,8 @@ import axios from 'axios'
 function EventAdd() {
     /*
         Because I have many fields, I created a single state,
-        and the "controlled-forms" lesson helped me a lot.
-        In it, we learned how to use a single state for more than one field.
+        and the "controlled-forms" classwork helped me a lot
+        to write this code. In it, we learned how to use a single state for more than one field.
     */
     const [formInputs, setFormInputs] = useState({
         title: '',
