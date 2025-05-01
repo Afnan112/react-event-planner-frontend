@@ -1,11 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router'
+import { useParams, useNavigate  } from 'react-router'
 
 function EventDetail() {
 
     const { id } = useParams()
+    const navigate = useNavigate()
     const [event, setEvent] = useState(null)
     const [errorMsg, setErrorMsg] = useState('')
 
@@ -18,7 +19,8 @@ function EventDetail() {
     } catch (err) {
         console.log(err)
         if (err.status === 404) {
-            setErrorMsg('Event Not Found')
+            // setErrorMsg('Event Not Found')
+            navigate('/not-found')
         } else {
             setErrorMsg('Somethig went Wrong :-(')
         }
