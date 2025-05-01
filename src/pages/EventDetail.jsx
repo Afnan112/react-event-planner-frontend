@@ -9,6 +9,7 @@ function EventDetail() {
     const navigate = useNavigate()
     const [event, setEvent] = useState(null)
     const [errorMsg, setErrorMsg] = useState('')
+    const [deleteConfirm, setDeleteConfirm] = useState(false)
 
     async function getSingleEvent() {
     // get the post from the API
@@ -44,6 +45,10 @@ async function deleteEvent(){
     }
 }
 
+
+function showConfirmDelete(){
+    setDeleteConfirm(true)
+}
 // End Delete Event Function
 
 if (errorMsg) return <h1>{errorMsg}</h1>
@@ -59,7 +64,14 @@ if (!event) return <h1>Loading your Post...</h1>
         <p><strong>Type:</strong> {event.event_type}</p>
         <p><strong>Description:</strong> {event.description}</p>
         <button>Register Attendance</button>
-        <button onClick={deleteEvent}>Delete</button>
+        {/* <button onClick={deleteEvent}>Delete</button> */}
+        {
+                deleteConfirm
+                ?
+                <button onClick={deleteEvent}>Are you Sure?</button>
+                :
+                <button onClick={showConfirmDelete}>Delete</button>
+            }
     </div>
   )
 }
