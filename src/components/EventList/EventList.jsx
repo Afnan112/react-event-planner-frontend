@@ -27,9 +27,12 @@ return (
        <ul>
             {events.map(event => {
                 return (
+                    <>
                     <li key={event.id}>
                         <Link to={`/events/${event.id}`}>{event.title}</Link>
                     </li> 
+                    
+                    </>
                 )
                 // <li key={event.id}>
                 //     <h2>{event.title}</h2>

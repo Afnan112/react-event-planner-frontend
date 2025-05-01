@@ -43,6 +43,7 @@ if (!event) return <h1>Loading your Post...</h1>
         <p><strong>Location:</strong> {event.location}</p>
         <p><strong>Type:</strong> {event.event_type}</p>
         <p><strong>Description:</strong> {event.description}</p>
+        <button>Register Attendance</button>
     </div>
   )
 }
