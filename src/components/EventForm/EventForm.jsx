@@ -100,6 +100,7 @@ function EventForm(props) {
             </div>
 
             <button type="submit">Create Event</button>
+            
         </form>
     </div>
 )

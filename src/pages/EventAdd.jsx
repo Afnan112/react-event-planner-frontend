@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import EventForm from '../components/EventForm/EventForm'
 import axios from 'axios'
+import { useNavigate  } from 'react-router'
 
 function EventAdd() {
     /*
@@ -19,6 +20,7 @@ function EventAdd() {
         event_type: '',
         description: ''
     })
+    const navigate = useNavigate()
 
     function handleChange(event){
         // console.log(event.target.name)
@@ -37,6 +39,9 @@ function EventAdd() {
         const url = 'http://127.0.0.1:8000/api/events/'
         const response = await axios.post(url, payload)
         console.log(response)
+        // After create event move on Home page 
+        navigate('/') 
+        
     }
 
   return (
