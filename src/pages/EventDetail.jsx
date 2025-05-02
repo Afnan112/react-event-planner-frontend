@@ -51,6 +51,13 @@ function showConfirmDelete(){
 }
 // End Delete Event Function
 
+// Start Connect attendance registration button to backend API
+function attendanceRegistering() {
+    
+}
+//End Connect attendance registration button to backend API
+
+
 if (errorMsg) return <h1>{errorMsg}</h1>
 if (!event) return <h1>Loading your Post...</h1>
 
@@ -63,7 +70,7 @@ if (!event) return <h1>Loading your Post...</h1>
         <p><strong>Location:</strong> {event.location}</p>
         <p><strong>Type:</strong> {event.event_type}</p>
         <p><strong>Description:</strong> {event.description}</p>
-        <button>Register Attendance</button>
+        <button onChange={attendanceRegistering}>Register Attendance</button>
         {/* <button onClick={deleteEvent}>Delete</button> */}
         {
                 deleteConfirm
