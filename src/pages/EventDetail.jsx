@@ -52,9 +52,19 @@ function showConfirmDelete(){
 // End Delete Event Function
 
 // Start Connect attendance registration button to backend API
-function attendanceRegistering() {
-    
-}
+async function attendanceRegistering() {
+    console.log("Button clicked!"); 
+    try {
+      const response = await axios.post(`http://127.0.0.1:8000/api/events/${id}/add-attendance/`);
+      if (response.status === 201) {
+        console.log("Attendance registered successfully!");
+        navigate('/');  
+      }
+    } catch (err) {
+      console.log("Error: ", err);
+    }
+  }
+  
 //End Connect attendance registration button to backend API
 
 
@@ -70,7 +80,7 @@ if (!event) return <h1>Loading your Post...</h1>
         <p><strong>Location:</strong> {event.location}</p>
         <p><strong>Type:</strong> {event.event_type}</p>
         <p><strong>Description:</strong> {event.description}</p>
-        <button onChange={attendanceRegistering}>Register Attendance</button>
+        <button onClick={attendanceRegistering}>Register Attendance</button>
         {/* <button onClick={deleteEvent}>Delete</button> */}
         {
                 deleteConfirm
