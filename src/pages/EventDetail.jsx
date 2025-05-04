@@ -11,6 +11,9 @@ function EventDetail() {
     const [errorMsg, setErrorMsg] = useState('')
     const [deleteConfirm, setDeleteConfirm] = useState(false)
 
+    const [userId, setUserId] = useState('1');
+    const [eventId, setEventId] = useState(id)
+
     async function getSingleEvent() {
     // get the post from the API
     // put the post in state
@@ -36,6 +39,7 @@ useEffect(() => {
 async function deleteEvent(){
     try {
         const response = await axios.delete(`http://127.0.0.1:8000/api/events/${id}/`)
+
         if (response.status === 204){
             navigate('/')
         }
@@ -54,14 +58,22 @@ function showConfirmDelete(){
 // Start Connect attendance registration button to backend API
 async function attendanceRegistering() {
     console.log("Button clicked!"); 
+
+    const payload = {
+      user: userId,
+      event_id: eventId,
+      };
+
+      console.log("eventId: ", eventId);
+      
     try {
-      const response = await axios.post(`http://127.0.0.1:8000/api/events/${id}/add-attendance/`);
+      const response = await axios.post(`http://127.0.0.1:8000/api/events/${eventId}/add-attendance/`, payload);
       if (response.status === 201) {
         console.log("Attendance registered successfully!");
         navigate('/');  
       }
     } catch (err) {
-      console.log("Error: ", err);
+      console.log("Error: ", err.response.data);
     }
   }
   
