@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react'
 
 import EventForm from '../components/EventForm/EventForm'
 
+import { authorizedRequest } from '../lib/api'
+
 
 function EventEdit() {
 
@@ -21,28 +23,39 @@ function EventEdit() {
         const { id } = useParams()
         const navigate = useNavigate()
 
+        // Successful
         async function getCurrentEventData() {
-            const response = await axios.get(`http://127.0.0.1:8000/api/events/${id}/`)
+            // Send Get() to get event's details
+            const response = await authorizedRequest('get', `/events/${id}/`)
             console.log(response.data)
+            // Show it in the form so the user can edit it 
             setFormInputs(response.data)
         }
+
         useEffect(() => {
             getCurrentEventData()
         },[])
-        
+
+        // Successful
         async function handleSubmit(event) {
             event.preventDefault()
-            const response = await axios.patch(`http://127.0.0.1:8000/api/events/${id}/`, formInputs)
+            const response = await authorizedRequest('patch', `/events/${id}/`, formInputs)
             console.log(response.data)
+            // go eventdetails page
             navigate(`/events/${id}`)
         }
+
+        // Successful
         function handleChange(event){
-            // console.log(event.target.name)
-            // console.log(event.target.value)
+            console.log(event.target.name)
+            console.log(event.target.value)
+            // It copies the current data from the form (formInputs) to a new variable (currentData).
             const currentData = {...formInputs} 
             currentData[event.target.name] = event.target.value
             setFormInputs(currentData)
         }
+
+
   return (
     <div>
         <h2>Edit Event </h2>

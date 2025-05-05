@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useParams, useNavigate  } from 'react-router'
+import { useParams, useNavigate, Link } from 'react-router'
+
 import { authorizedRequest } from '../lib/api'
 
 function EventDetail() {
@@ -15,11 +16,12 @@ function EventDetail() {
     const [userId, setUserId] = useState('1');
     const [eventId, setEventId] = useState(id)
 
+    // Start get a specific event's details
     async function getSingleEvent() {
     // get the Event from the API
     // put the event in state
+    // Successful
     try {
-        // const response = await axios.get(`http://127.0.0.1:8000/api/events/${id}`)
         const response = await authorizedRequest('get', `/events/${id}`)
         setEvent(response.data)
     } catch (err) {
@@ -36,11 +38,13 @@ useEffect(() => {
     getSingleEvent()
     console.log(id)
 }, [])
+// End get a specific event's details
 
 // Start Delete Event Function
+// Successful
 async function deleteEvent(){
     try {
-        const response = await axios.delete(`http://127.0.0.1:8000/api/events/${id}/`)
+        const response = await authorizedRequest('delete', `/events/${id}/`)
 
         if (response.status === 204){
             navigate('/')
@@ -103,6 +107,7 @@ if (!event) return <h1>Loading your Post...</h1>
                 :
                 <button onClick={showConfirmDelete}>Delete</button>
             }
+            <Link to ={`/events/${id}/edit`}>Edit this Event</Link>
     </div>
   )
 }
