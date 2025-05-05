@@ -7,14 +7,24 @@ import NotFound from "./pages/NotFound";
 import EventEdit from "./pages/EventEdit";
 import UserEvent from "./pages/UserEvent";
 import Signup from './pages/Signup'
-
+import Login from './pages/Login'
 
 function App() {
+  function logout(){
+    localStorage.removeItem('access_token')
+    localStorage.removeItem('refresh_token')
+    window.location.href = '/'
+  }
+
   return (
     <Router>
+      <nav>
+        <button onClick={logout}>Log Out</button>
+      </nav>
       <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
           <Route path='events/add' element={<EventAdd/>}/>
           <Route path='events/:id' element={<EventDetail/>}/>
           <Route path='events/:id/edit' element={<EventEdit/>}/>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { setTokens } from '../lib/api'
 
 function Signup() {
 
@@ -15,6 +16,7 @@ function Signup() {
                 {username, email, password}
             )
             console.log(response.data)
+            setTokens(response.data)
         } catch (err) {
             console.log(err)
         }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router'
+import { authorizedRequest } from '../../lib/api'
 
 
 function EventList() {
@@ -8,12 +9,13 @@ function EventList() {
     const [events, setEvents] = useState([])
 
     async function getAllEvents() {
-         try {
-            const response = await axios.get('http://127.0.0.1:8000/api/events/')
+        try {
+            // const response = await axios.get('http://127.0.0.1:8000/api/events/')
+            const response = await authorizedRequest('get', '/events/')
             setEvents(response.data)
-         } catch (err) {
+        } catch (err) {
             console.log('Error fetching events', err)
-         }
+        }
     }
 
     useEffect(() => {
@@ -22,9 +24,9 @@ function EventList() {
     
 return (
     <div>
-       <h2>Event List Page</h2>
-       <h3>Events</h3>
-       <ul>
+    <h2>Event List Page</h2>
+    <h3>Events</h3>
+    <ul>
             {events.map(event => {
                 return (
                     <li key={event.id}>
@@ -42,9 +44,9 @@ return (
                 //     <button>Register Attendance</button>
                 // </li>
             })}
-       </ul>
+    </ul>
     </div>
-  )
+)
 }
 
 export default EventList

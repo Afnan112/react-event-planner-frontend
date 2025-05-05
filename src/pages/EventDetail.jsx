@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams, useNavigate  } from 'react-router'
+import { authorizedRequest } from '../lib/api'
 
 function EventDetail() {
 
@@ -15,10 +16,11 @@ function EventDetail() {
     const [eventId, setEventId] = useState(id)
 
     async function getSingleEvent() {
-    // get the post from the API
-    // put the post in state
+    // get the Event from the API
+    // put the event in state
     try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/events/${id}`)
+        // const response = await axios.get(`http://127.0.0.1:8000/api/events/${id}`)
+        const response = await authorizedRequest('get', `/events/${id}`)
         setEvent(response.data)
     } catch (err) {
         console.log(err)
