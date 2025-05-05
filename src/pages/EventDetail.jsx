@@ -13,7 +13,6 @@ function EventDetail() {
     const [errorMsg, setErrorMsg] = useState('')
     const [deleteConfirm, setDeleteConfirm] = useState(false)
 
-    const [userId, setUserId] = useState('1');
     const [eventId, setEventId] = useState(id)
 
     // Start get a specific event's details
@@ -65,15 +64,9 @@ function showConfirmDelete(){
 async function attendanceRegistering() {
     console.log("Button clicked!"); 
 
-    const payload = {
-      user: userId,
-      event_id: eventId,
-      };
-
-      console.log("eventId: ", eventId);
-      
     try {
-      const response = await axios.post(`http://127.0.0.1:8000/api/events/${eventId}/add-attendance/`, payload);
+      const response = await authorizedRequest('post', `/events/${eventId}/add-attendance/`);
+      
       if (response.status === 201) {
         console.log("Attendance registered successfully!");
         navigate('/');  
