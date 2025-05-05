@@ -7,14 +7,24 @@ function Signup() {
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
 
-    async function handleSubmit(){
+    async function handleSubmit(event){
+        event.preventDefault()
+        try {
+            const response = await axios.post(
+                'http://127.0.0.1:8000/api/signup/',
+                {username, email, password}
+            )
+            console.log(response.data)
+        } catch (err) {
+            console.log(err)
+        }
 
     }
 
     return (
         <div>
-            <h1>Sign Up To The Blog!</h1>
-            <form>
+            <h1>Sign Up To The Event Planner!</h1>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <input
                         type='text'
