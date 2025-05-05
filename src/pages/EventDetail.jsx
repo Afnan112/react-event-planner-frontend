@@ -68,11 +68,13 @@ async function attendanceRegistering() {
       const response = await authorizedRequest('post', `/events/${eventId}/add-attendance/`);
       
       if (response.status === 201) {
-        console.log("Attendance registered successfully!");
+        console.log("Attendance registered successfully!")
+        alert("You have been successfully registered")
         navigate('/');  
-      }
+      } 
     } catch (err) {
       console.log("Error: ", err.response.data);
+      
     }
   }
   
