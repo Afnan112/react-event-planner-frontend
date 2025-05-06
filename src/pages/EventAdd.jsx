@@ -21,7 +21,8 @@ function EventAdd() {
         end_time: '',
         location: '',
         event_type: '',
-        description: ''
+        description: '',
+        notes: ''
     })
     const navigate = useNavigate()
 
@@ -52,6 +53,20 @@ function EventAdd() {
 
           if (response.status === 201) {
             console.log('Event successfully created:', response.data);
+            // Start Add notes to event
+            if (formInputs.notes.trim() !== '') {
+              const notePayload = {
+                content: formInputs.notes
+              }
+              const eventId = response.data.id;
+              try {
+                await authorizedRequest('post', `/events/${eventId}/add-note/`, notePayload)
+                console.log("Note successfully added")
+              } catch (noteErr) {
+                console.log("Failed to add note", noteErr);
+              }
+            }
+            // End Add notes to event
               // After create event move on Home page 
               navigate('/') 
           } 

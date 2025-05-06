@@ -99,6 +99,15 @@ function EventForm(props) {
                 ></textarea>
             </div>
 
+            <div>
+                <label>Notes</label>
+                <textarea 
+                id='notes' 
+                name='notes'
+                value={props.formInputs.notes}
+                onChange={props.handleChange}
+                ></textarea>
+            </div>
             <button type="submit">Create Event</button>
             
         </form>
