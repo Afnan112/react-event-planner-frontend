@@ -9,7 +9,7 @@ import UserEvent from "./pages/UserEvent";
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import Navbar from "./components/NavBar/NavBar";
-
+import EventList from './pages/AllEvents'
 
 function App() {
   function logout(){
@@ -33,6 +33,8 @@ function App() {
           <Route path='events/:id/edit' element={<EventEdit/>}/>
           <Route path='*' element={<NotFound/>}/>
           <Route path= 'attendance/my_events' element={<UserEvent/>}/>
+          <Route path="allevents" element={<EventList />} />
+
           {/* <Route path="/not-found" element={<NotFound />} /> */}
           
       </Routes>

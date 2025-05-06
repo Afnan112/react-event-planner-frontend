@@ -33,7 +33,8 @@ const handleSubmit = async (event) => {
         access: response.data.access,
         refresh: response.data.refresh,
     });
-    navigate("/");
+    // navigate("/");
+    navigate("/allevents")
     } catch (err) {
     console.log(err);
     setError("Invalid username or password");

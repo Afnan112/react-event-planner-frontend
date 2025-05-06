@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { Link } from 'react-router'
 import { authorizedRequest } from '../../lib/api'
 
@@ -26,7 +26,7 @@ return (
     <div>
     <h2>Event List Page</h2>
     <h3>Events</h3>
-    <ul>
+    {/* <ul>
             {events.map(event => {
                 return (
                     <li key={event.id}>
@@ -43,8 +43,21 @@ return (
 
                 //     <button>Register Attendance</button>
                 // </li>
+
+                
             })}
-    </ul>
+    </ul> */}
+    <ul className="list-group">
+  {events.map(event => (
+    <li key={event.id} className="list-group-item d-flex justify-content-between align-items-center">
+      <span>{event.title}</span>
+      <Link to={`/events/${event.id}`} className="btn btn-primary btn-sm">
+        View Details
+      </Link>
+    </li>
+  ))}
+</ul>
+
     </div>
 )
 }

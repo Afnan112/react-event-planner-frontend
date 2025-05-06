@@ -11,8 +11,8 @@ return (
         alt="Event"
         className="img-fluid rounded"
         style={{ maxHeight: '400px' }}
-      />
-    <EventList/>
+    />
+    {/* <EventList/> */}
     </div>
 )
 }
