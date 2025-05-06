@@ -8,6 +8,8 @@ import EventEdit from "./pages/EventEdit";
 import UserEvent from "./pages/UserEvent";
 import Signup from './pages/Signup'
 import Login from './pages/Login'
+import Navbar from "./components/NavBar/NavBar";
+
 
 function App() {
   function logout(){
@@ -18,9 +20,10 @@ function App() {
 
   return (
     <Router>
-      <nav>
+      {/* <nav>
         <button onClick={logout}>Log Out</button>
-      </nav>
+      </nav> */}
+      <Navbar/>
       <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/signup' element={<Signup />} />
