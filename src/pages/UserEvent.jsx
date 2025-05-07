@@ -49,41 +49,41 @@ function UserEvent() {
     }
     
 
-// return (
-//     <div>
-//         <h2>User's Event </h2>
-//         {userEvent.map((event) => (
-//             <div key={event.id}>
-//                 <h3>{event.event_title}</h3>
-//                 <button onClick={() => cancelAttendance(event.id)} >Cancle Attendance</button>
-//             </div>
-//         ))}
-//     </div>
-//   )
 return (
-    <div className="p-6 max-w-3xl mx-auto">
-    {userEvent.length === 0 ? (
-        <p className="text-center text-gray-500">You haven't registered for any events yet.</p>
-    ) : (
-        <div className="grid gap-4">
+    <div>
+        <h2>User's Event </h2>
         {userEvent.map((event) => (
-            <div
-            key={event.id}
-            className="bg-white shadow-md rounded-xl p-4 border border-gray-200"
-            >
-            <h3 className="text-xl font-semibold mb-2">{event.event_title}</h3>
-            <button
-                onClick={() => cancelAttendance(event.id)}
-                className="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded"style={{ backgroundColor: "#328E6E", color: "white" }}
-            >
-                Cancel Attendance
-            </button>
+            <div key={event.id}>
+                <h3>{event.event_title}</h3>
+                <button onClick={() => cancelAttendance(event.id)} >Cancle Attendance</button>
             </div>
         ))}
-        </div>
-    )}
     </div>
-);
+  )
+// return (
+//     <div className="p-6 max-w-3xl mx-auto">
+//     {userEvent.length === 0 ? (
+//         <p className="text-center text-gray-500">You haven't registered for any events yet.</p>
+//     ) : (
+//         <div className="grid gap-4">
+//         {userEvent.map((event) => (
+//             <div
+//             key={event.id}
+//             className="bg-white shadow-md rounded-xl p-4 border border-gray-200"
+//             >
+//             <h3 className="text-xl font-semibold mb-2">{event.event_title}</h3>
+//             <button
+//                 onClick={() => cancelAttendance(event.id)}
+//                 className="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded"style={{ backgroundColor: "#328E6E", color: "white" }}
+//             >
+//                 Cancel Attendance
+//             </button>
+//             </div>
+//         ))}
+//         </div>
+//     )}
+//     </div>
+// );
 
 }
 

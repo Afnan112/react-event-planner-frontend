@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import { useParams, useNavigate, Link } from 'react-router'
 
 import { authorizedRequest } from '../lib/api'
@@ -84,7 +83,7 @@ async function attendanceRegistering() {
     
     if (response.status === 201) {
         console.log("Attendance registered successfully!")
-        // alert("You have been successfully registered")
+
         setShowToast(true)
 
         setTimeout(() => {
@@ -101,7 +100,7 @@ async function attendanceRegistering() {
 
 //End Connect attendance registration button to backend API
 
-// Strat Cancle Attendance 
+//Strat Cancle Attendance 
 // async function cancelAttendance() {
 //     console.log("Button clicked!")
 //     try {
