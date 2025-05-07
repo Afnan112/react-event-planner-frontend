@@ -20,9 +20,9 @@ function App() {
 
   return (
     <Router>
-      {/* <nav>
+      <nav>
         <button onClick={logout}>Log Out</button>
-      </nav> */}
+      </nav>
       <Navbar/>
       <Routes>
           <Route path='/' element={<Home/>}/>
