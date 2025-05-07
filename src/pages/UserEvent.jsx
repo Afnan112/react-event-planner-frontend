@@ -37,6 +37,7 @@ function UserEvent() {
     async function cancelAttendance(eventId) {
         try {
             const response = await axios.delete(`http://127.0.0.1:8000/api/attendance/${eventId}/cancel/`)
+            console.log(response.config.url)
             console.log(response.data)
             alert("Attendance successfully cancelled")
             setUserEvent(userEvent.filter((event) => event.id !== eventId))
