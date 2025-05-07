@@ -34,13 +34,14 @@ function UserEvent() {
     }, [])
 
     // Cancel user attendance for an event
-    async function cancelAttendance(eventId) {
+    async function cancelAttendance(event_id) {
+        console.log("Cancelling attendance for event ID:", event_id)
         try {
-            const response = await axios.delete(`http://127.0.0.1:8000/api/attendance/${eventId}/cancel/`)
-            console.log(response.config.url)
-            console.log(response.data)
-            alert("Attendance successfully cancelled")
-            setUserEvent(userEvent.filter((event) => event.id !== eventId))
+            const url = `http://127.0.0.1:8000/api/attendance/${event_id}/cancel/`
+            const response = await authorizedRequest('delete', url);
+            console.log("Response:", response);
+            alert("Attendance successfully cancelled");
+            setUserEvent(prevEvents => prevEvents.filter(event => event.id !== event_id))
         } catch (err) {
             console.log(err)
             alert("Error while canceling attendance")
@@ -48,17 +49,42 @@ function UserEvent() {
     }
     
 
+// return (
+//     <div>
+//         <h2>User's Event </h2>
+//         {userEvent.map((event) => (
+//             <div key={event.id}>
+//                 <h3>{event.event_title}</h3>
+//                 <button onClick={() => cancelAttendance(event.id)} >Cancle Attendance</button>
+//             </div>
+//         ))}
+//     </div>
+//   )
 return (
-    <div>
-        <h2>User's Event </h2>
+    <div className="p-6 max-w-3xl mx-auto">
+    {userEvent.length === 0 ? (
+        <p className="text-center text-gray-500">You haven't registered for any events yet.</p>
+    ) : (
+        <div className="grid gap-4">
         {userEvent.map((event) => (
-            <div key={event.id}>
-                <h3>{event.event_title}</h3>
-                <button onClick={() => cancelAttendance(event.id)} >Cancle Attendance</button>
+            <div
+            key={event.id}
+            className="bg-white shadow-md rounded-xl p-4 border border-gray-200"
+            >
+            <h3 className="text-xl font-semibold mb-2">{event.event_title}</h3>
+            <button
+                onClick={() => cancelAttendance(event.id)}
+                className="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded"style={{ backgroundColor: "#328E6E", color: "white" }}
+            >
+                Cancel Attendance
+            </button>
             </div>
         ))}
+        </div>
+    )}
     </div>
-  )
+);
+
 }
 
 export default UserEvent

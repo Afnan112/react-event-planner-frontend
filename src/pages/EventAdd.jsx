@@ -80,7 +80,6 @@ function EventAdd() {
 
   return (
     <div>
-      <h1>Event Add Page</h1>
       <EventForm
         formInputs={formInputs}
         setFormInputs={setFormInputs}

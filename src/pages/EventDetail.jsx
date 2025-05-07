@@ -102,21 +102,21 @@ async function attendanceRegistering() {
 //End Connect attendance registration button to backend API
 
 // Strat Cancle Attendance 
-async function cancelAttendance() {
-    console.log("Button clicked!")
-    try {
-        const response = await authorizedRequest('delete', `/attendance/${eventId}/cancel/`)
+// async function cancelAttendance() {
+//     console.log("Button clicked!")
+//     try {
+//         const response = await authorizedRequest('delete', `/attendance/${eventId}/cancel/`)
         
-        if (response.status === 204) {
-        console.log("Attendance canceled successfully!")
-        alert("Attendance canceled successfully!")
-        navigate('/');  
-        } 
-    } catch (err) {
-        console.log("Error: ", err.response.data)
+//         if (response.status === 204) {
+//         console.log("Attendance canceled successfully!")
+//         alert("Attendance canceled successfully!")
+//         navigate('/');  
+//         } 
+//     } catch (err) {
+//         console.log("Error: ", err.response.data)
         
-    }
-    }
+//     }
+//     }
 // End Cancle Attendance 
 
 
@@ -151,7 +151,7 @@ if (!event) return <h1>Loading your Post...</h1>
         
         <div className="d-flex gap-2 flex-wrap"></div>
         <button onClick={attendanceRegistering} className="btn btn-success">Register Attendance</button>
-        <button onClick={cancelAttendance} className="btn btn-warning">Cancel</button> 
+        {/* <button onClick={cancelAttendance} className="btn btn-warning">Cancel</button>  */}
         {
                 deleteConfirm
                 ?

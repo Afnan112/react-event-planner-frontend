@@ -12,6 +12,7 @@ import Logout from "./pages/Logout";
 
 import Navbar from "./components/NavBar/NavBar";
 import EventList from './pages/AllEvents'
+import ProtectedRoute from "./components/ProtectedRoutes";
 
 function App() {
   // function logout(){
@@ -30,12 +31,15 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/logout' element={<Logout />} />
+      <Route element={<ProtectedRoute/>}>
+      <Route path='/logout' element={<Logout />} />
           <Route path='events/add' element={<EventAdd/>}/>
           <Route path='events/:id' element={<EventDetail/>}/>
           <Route path='events/:id/edit' element={<EventEdit/>}/>
           <Route path="/myevents" element={<UserEvent />} />
           <Route path="allevents" element={<EventList />} />
+      </Route>
+          
           <Route path='*' element={<NotFound/>}/>
           {/* <Route path="/not-found" element={<NotFound />} /> */}
           
