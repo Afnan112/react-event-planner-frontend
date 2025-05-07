@@ -45,22 +45,30 @@ return (
     <div>
     <h1>Login</h1>
     <form onSubmit={handleSubmit}>
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
         <input
         type="text"
         name="username"
         placeholder="Username"
         value={formData.username}
         onChange={handleChange}
+        class="form-control"
         required
         />
-        <input
+    </div>
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input
         type="password"
         name="password"
         placeholder="Password"
         value={formData.password}
         onChange={handleChange}
+        class="form-control"
         required
         />
+    </div>
         <button type="submit">Login</button>
         {error && <p>{error}</p>}
     </form>

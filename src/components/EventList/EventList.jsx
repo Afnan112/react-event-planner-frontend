@@ -24,8 +24,8 @@ function EventList() {
     
 return (
     <div>
-    <h2>Event List Page</h2>
-    <h3>Events</h3>
+    {/* <h2>Event List Page</h2>
+    <h3>Events</h3> */}
     {/* <ul>
             {events.map(event => {
                 return (
@@ -47,16 +47,35 @@ return (
                 
             })}
     </ul> */}
-    <ul className="list-group">
+    {/* <ul className="list-group">
+            {events.map(event => (
+        <li key={event.id} className="list-group-item d-flex justify-content-between align-items-center">
+            <span>{event.title}</span>
+            <Link to={`/events/${event.id}`} className="btn btn-primary btn-sm">
+                View Details
+            </Link>
+            </li>
+        ))}
+</ul> */}
+
+<div className="row">
   {events.map(event => (
-    <li key={event.id} className="list-group-item d-flex justify-content-between align-items-center">
-      <span>{event.title}</span>
-      <Link to={`/events/${event.id}`} className="btn btn-primary btn-sm">
-        View Details
-      </Link>
-    </li>
+    <div key={event.id} className="col-md-4 mb-4">
+      <div className="card h-100">
+        <div className="card-body d-flex flex-column">
+          <h5 className="card-title">{event.title}</h5>
+          {/* <p className="card-text">{event.description?.slice(0, 100)}...</p> */}
+          <Link to={`/events/${event.id}`} className="btn mt-auto"
+          style={{ backgroundColor: "#328E6E", color: "white" }}
+          >
+            View Details
+          </Link>
+        </div>
+      </div>
+    </div>
   ))}
-</ul>
+</div>
+
 
     </div>
 )
