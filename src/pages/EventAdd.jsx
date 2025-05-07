@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 import EventForm from '../components/EventForm/EventForm'
-import axios from 'axios'
 import { useNavigate  } from 'react-router'
 
 import { authorizedRequest } from '../lib/api'

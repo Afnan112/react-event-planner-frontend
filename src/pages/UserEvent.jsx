@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useState,  } from 'react'
 import axios from 'axios'
 import { useNavigate  } from 'react-router'
+import { authorizedRequest } from '../lib/api'
 
 function UserEvent() {
 
@@ -12,7 +13,8 @@ function UserEvent() {
     // View user's registered events
     async function getUserEvent() {
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/api/attendance/my_events`)
+            const response = await authorizedRequest('get', 'http://127.0.0.1:8000/api/attendance/my_events');
+
             console.log(response.data)
             setUserEvent(response.data)
         }catch (err) {

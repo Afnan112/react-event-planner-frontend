@@ -15,6 +15,7 @@ function EventDetail() {
 
     const [eventId, setEventId] = useState(id)
     const [notes, setNotes] = useState([])
+    const [showToast, setShowToast] = useState(false)
 
     // Start get a specific event's details
     async function getSingleEvent() {
@@ -83,8 +84,14 @@ async function attendanceRegistering() {
     
     if (response.status === 201) {
         console.log("Attendance registered successfully!")
-        alert("You have been successfully registered")
-        navigate('/');  
+        // alert("You have been successfully registered")
+        setShowToast(true)
+
+        setTimeout(() => {
+            setShowToast(false)
+            // navigate('/')
+            navigate(`/events/${eventId}`)
+        }, 3000)
     } 
     } catch (err) {
     console.log("Error: ", err.response.data)
@@ -117,9 +124,11 @@ if (errorMsg) return <h1>{errorMsg}</h1>
 if (!event) return <h1>Loading your Post...</h1>
 
   return (
-    <div>
-        <h2>Event Detail Page</h2>
-        <h2>{event.title}</h2>
+    
+    <div className="container mt-5">
+        {/* <h2>Event Detail Page</h2> */}
+        <div className="card shadow p-4">
+        <h2 className="card-title mb-4">{event.title}</h2>
         <p><strong>Date:</strong> {event.start_date} to {event.end_date}</p>
         <p><strong>Time:</strong> {event.start_time} - {event.end_time}</p>
         <p><strong>Location:</strong> {event.location}</p>
@@ -127,12 +136,12 @@ if (!event) return <h1>Loading your Post...</h1>
         <p><strong>Description:</strong> {event.description}</p>
         
         {/* Start Add note */}
-        <h3>Notes:</h3>
+        <h4 className="mt-4">Notes:</h4>
         {/* condition ? expression_if_true : expression_if_false */}
         {notes.length > 0 ? (
-            <ul>
+            <ul className="list-group mb-4">
             {notes.map(note => (
-                <li key={note.id}>{note.content}</li>
+                <li key={note.id} className="list-group-item">{note.content}</li>
                 ))}
             </ul>
             ) : (
@@ -140,9 +149,9 @@ if (!event) return <h1>Loading your Post...</h1>
             )}
         {/* End  Add note */}
         
-        
-        <button onClick={attendanceRegistering}>Register Attendance</button>
-        <button onClick={cancelAttendance}>Cancel</button> 
+        <div className="d-flex gap-2 flex-wrap"></div>
+        <button onClick={attendanceRegistering} className="btn btn-success">Register Attendance</button>
+        <button onClick={cancelAttendance} className="btn btn-warning">Cancel</button> 
         {
                 deleteConfirm
                 ?
@@ -150,13 +159,30 @@ if (!event) return <h1>Loading your Post...</h1>
                 :
                 <button onClick={showConfirmDelete}>Delete</button>
             }
-            <Link to ={`/events/${id}/edit`}>Edit this Event</Link>
-            
-            
-    
-    
-    </div>
-  )
+            <Link to ={`/events/${id}/edit`} className="btn btn-outline-primary">Edit this Event</Link>
+        </div>
+        {showToast && (
+        <div
+            className="toast show position-fixed top-0 end-0 m-4"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+            style={{ zIndex: 9999 }}
+        >
+        <div className="d-flex">
+            <div className="toast-body">
+                You have successfully registered for the event!
+            </div>
+            <button
+                type="button"
+                className="btn-close btn-close-white ms-2"
+                onClick={() => setShowToast(false)}
+            ></button>
+            </div>
+        </div>
+        )}
+        </div>
+    )
 }
 
 export default EventDetail
