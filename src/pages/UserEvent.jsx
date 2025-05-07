@@ -13,7 +13,7 @@ function UserEvent() {
     // View user's registered events
     async function getUserEvent() {
         try {
-            const response = await authorizedRequest('get', 'http://127.0.0.1:8000/api/attendance/my_events');
+            const response = await authorizedRequest('get', '/attendance/my_events');
 
             console.log(response.data)
             setUserEvent(response.data)
@@ -52,7 +52,7 @@ return (
         <h2>User's Event </h2>
         {userEvent.map((event) => (
             <div key={event.id}>
-                <h3>{event.title}</h3>
+                <h3>{event.event_title}</h3>
                 <button onClick={() => cancelAttendance(event.id)} >Cancle Attendance</button>
             </div>
         ))}
