@@ -53,12 +53,13 @@ function EventAdd() {
 
           if (response.status === 201) {
             console.log('Event successfully created:', response.data);
+            const eventId = response.data.id;
             // Start Add notes to event
             if (formInputs.notes.trim() !== '') {
               const notePayload = {
                 content: formInputs.notes
               }
-              const eventId = response.data.id;
+              // const eventId = response.data.id
               try {
                 await authorizedRequest('post', `/events/${eventId}/add-note/`, notePayload)
                 console.log("Note successfully added")
@@ -68,7 +69,8 @@ function EventAdd() {
             }
             // End Add notes to event
               // After create event move on Home page 
-              navigate('/') 
+              // navigate('/') 
+              navigate(`/events/${eventId}`)
           } 
 
         } catch (err ){

@@ -24,6 +24,11 @@ function EventList() {
     
 return (
     <div>
+      <div className="mb-3 text-end">
+        <Link to="/events/add" className="btn btn-success">
+          + Add New Event
+        </Link>
+      </div>
     {/* <h2>Event List Page</h2>
     <h3>Events</h3> */}
     {/* <ul>

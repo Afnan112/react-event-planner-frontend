@@ -3,7 +3,7 @@ import React from "react";
 function EventForm(props) {
   return (
     <div>
-        <h2>Crate your Event</h2>
+        <h2>Create Event</h2>
         <form onSubmit={props.handleSubmit}>
             <div>
                 <label>Event Title</label>
@@ -80,6 +80,7 @@ function EventForm(props) {
             value={props.formInputs.event_type}
             onChange={props.handleChange}
             >
+            <option value="">-- Select Event Type --</option>
             <option value="workshop">Workshop</option>
             <option value="course">Course</option>
             <option value="conference">Conference</option>
