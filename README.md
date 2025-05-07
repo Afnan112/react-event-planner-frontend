@@ -27,8 +27,8 @@ https://git.generalassemb.ly/afnan07/django-event-planner-backend
 - npm run dev
   
 #### Screenshots of the flow of your app
-![ERD](./assets/Home.jpg)
-![ERD](./assets/All%20events%20page.png)
+![Home](./assets/Home.jpg)
+![EventList](./assets/All%20events%20page.png)
 
 #### IceBox Features
 - Automatic reminders for attendees before the event via email or in-app notifications.
