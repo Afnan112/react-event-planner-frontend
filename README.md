@@ -30,6 +30,17 @@ https://git.generalassemb.ly/afnan07/django-event-planner-backend
 ![Home](./assets/Home.jpg)
 ![EventList](./assets/All%20events%20page.png)
 
+
+### Code I’m proud of
+![code](./assets/code%20l'm%20proud.png)
+
+Code I’m proud of. This is the first code I wrote in the application, which creates a new event. I was able to use a single useState instead of eight separate useState.
+
+### Challenges
+- This was my first full-stack project, which required me to learn how to coordinate between the frontend (React) and the backend (Django). I faced challenges in task separation, understanding how data is exchanged between both sides, and managing state in React while effectively linking it to the API data.
+- Time 
+- Problem solving
+
 #### IceBox Features
 - Automatic reminders for attendees before the event via email or in-app notifications.
 - A visual calendar to display events by date and allow users to easily browse and select upcoming events. 
