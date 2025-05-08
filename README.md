@@ -25,9 +25,11 @@ https://git.generalassemb.ly/afnan07/django-event-planner-backend
 - code .
 - npm install
 - npm run dev
-  
+
+### ERD Diagram 
+![ERD](./assets/ERD%20event%20planner.png)
+
 #### Screenshots of the flow of your app
-![Home](./assets/Home.jpg)
 ![EventList](./assets/All%20events%20page.png)
 
 
