@@ -1,49 +1,47 @@
-# React + Vite
+# 🎉 Event Planner - Frontend (React + Vite)
 
-## Front End Repository
+## 🗂️ Project Description
+A user-friendly event planning app where users can:
+- Create and manage events
+- Register attendance
+- Add and view event notes
 
-### Project & Repository descriptions
-My project is an event planning system that allows users to create events, register attendance, and add important notes for attendees. It aims to simplify organizing and tracking events in an easy and efficient way.
+The frontend communicates with a Django backend and provides an intuitive interface for managing events efficiently.
 
-### Tech stack (all of the languages, libraries and tools that you used to develop your frontend app)
+---
+
+### Tech Stack
 - React
--  npm create vite@latest
--   Javascript
--    axios
--    react-router-dom
--    
-### Backend Repo Link
-https://git.generalassemb.ly/afnan07/django-event-planner-backend
+- JavaScript
+- Vite
+- Axios
+- React Router DOM
 
-#### Installation Instructions as Needed (docker, or instructions on how to run the app directly)
-- git clone my_repo_link
-- npm create vite@latest
-- name_project
-- select React
-- Select JS
-- cd name_project
-- code .
-- npm install
-- npm run dev
+## 🗄️ Backend Repository
+   [Event Planner - Backend](https://github.com/Afnan112/django-event-planner-backend)
 
-### ERD Diagram 
-![ERD](./assets/ERD%20event%20planner.png)
+---
 
-#### Screenshots of the flow of your app
-![EventList](./assets/All%20events%20page.png)
+## 🚀 Installation Instructions
 
+```bash
+# Clone the repo
+git clone https://github.com/Afnan112/react-event-planner-frontend.git
 
-### Code I’m proud of
-![code](./assets/code%20l'm%20proud.png)
+# Navigate to project directory
+cd react-event-planner-frontend
 
-Code I’m proud of. This is the first code I wrote in the application, which creates a new event. I was able to use a single useState instead of eight separate useState.
+# Install dependencies
+npm install
 
-### Challenges
-- This was my first full-stack project, which required me to learn how to coordinate between the frontend (React) and the backend (Django). I faced challenges in task separation, understanding how data is exchanged between both sides, and managing state in React while effectively linking it to the API data.
-- Time 
-- Problem solving
+# Run the development server
+npm run dev
+```
 
-#### IceBox Features
-- Automatic reminders for attendees before the event via email or in-app notifications.
-- A visual calendar to display events by date and allow users to easily browse and select upcoming events. 
-- Allow users to share event links with others through social media or direct invite links
+#### App Screenshots
+
+### Home page  
+![EventHome](./assets/home_event_planner.png)
+
+### Events List page 
+![EventList](./assets/all_events_page.png)
